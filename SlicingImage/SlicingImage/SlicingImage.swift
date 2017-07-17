@@ -30,6 +30,7 @@ public class SlicingImage: UIView {
             addSubview(imageStripe)
             return imageStripe
         }
+        self.direction = direction
         updateLayout()
     }
     
