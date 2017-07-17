@@ -12,10 +12,12 @@ public class ImageStripe: UIView {
     
     public let imageView: UIImageView = UIImageView()
     public let index: Int
+    public let totalCount: Int
     public let direction: SlicingDirection
     
-    public init(with image: UIImage, at index: Int, inDirection direction: SlicingDirection) {
+    public init(with image: UIImage, at index: Int, forTotalCount totalCount: Int, inDirection direction: SlicingDirection) {
         self.index = index
+        self.totalCount = totalCount
         self.direction = direction
         super.init(frame: .zero)
         setupView(with: image)
@@ -30,10 +32,6 @@ public class ImageStripe: UIView {
         layoutImage()
     }
     
-    func update(containerSize: CGSize) {
-        imageView.frame.size = containerSize
-    }
-    
     private func setupView(with image: UIImage) {
         imageView.image = image
         addSubview(imageView)
@@ -42,9 +40,12 @@ public class ImageStripe: UIView {
     
     private func layoutImage() {
         switch direction {
-        case .vertical: imageView.frame.origin.y = -CGFloat(index) * bounds.height
-        case .horizontal: imageView.frame.origin.x = -CGFloat(index) * bounds.width
+        case .vertical:
+            imageView.frame.origin.y = -CGFloat(index) * bounds.height
+            imageView.frame.size = CGSize(width: bounds.width, height: CGFloat(totalCount) * bounds.height)
+        case .horizontal:
+            imageView.frame.origin.x = -CGFloat(index) * bounds.width
+            imageView.frame.size = CGSize(width: CGFloat(totalCount) * bounds.width, height: bounds.height)
         }
-        print("imageView.frame: \(imageView.frame), superview!.frame: \(superview!.frame.size), bounds.size: \(bounds.size)")
     }
 }
