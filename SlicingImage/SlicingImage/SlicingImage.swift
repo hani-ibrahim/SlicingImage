@@ -22,7 +22,7 @@ public enum SlicingDirection {
 
 public class SlicingImage: UIView {
 
-    public private(set) var slicesImageView: [UIImageView] = []
+    public private(set) var stripes: [ImageStripe] = []
     private let stackView: UIStackView = UIStackView()
     
     public override init(frame: CGRect) {
@@ -37,8 +37,11 @@ public class SlicingImage: UIView {
     
     public func configure(for image: UIImage, into count: Int, inDirection direction: SlicingDirection) {
         prepareStackView(for: direction)
-        
-        
+        stripes = (0..<count).map { index in
+            let imageStripe = ImageStripe(with: image, inContainerSize: bounds.size, at: index, inDirection: direction)
+            stackView.addArrangedSubview(imageStripe)
+            return imageStripe
+        }
     }
     
     private func setupStackView() {
