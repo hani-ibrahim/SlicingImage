@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		374A85A71F1D3CD3005D2849 /* ImageStripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A85A61F1D3CD3005D2849 /* ImageStripe.swift */; };
 		37E54F4E1F1A20CC0004C346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E54F4D1F1A20CC0004C346 /* AppDelegate.swift */; };
-		37E54F501F1A20CC0004C346 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E54F4F1F1A20CC0004C346 /* ViewController.swift */; };
+		37E54F501F1A20CC0004C346 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E54F4F1F1A20CC0004C346 /* DemoViewController.swift */; };
 		37E54F531F1A20CC0004C346 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E54F511F1A20CC0004C346 /* Main.storyboard */; };
 		37E54F551F1A20CC0004C346 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37E54F541F1A20CC0004C346 /* Assets.xcassets */; };
 		37E54F581F1A20CC0004C346 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E54F561F1A20CC0004C346 /* LaunchScreen.storyboard */; };
+		37E54F601F1A21AA0004C346 /* SlicingImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E54F5F1F1A21AA0004C346 /* SlicingImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		374A85A61F1D3CD3005D2849 /* ImageStripe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStripe.swift; sourceTree = "<group>"; };
 		37E54F4A1F1A20CC0004C346 /* SlicingImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlicingImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E54F4D1F1A20CC0004C346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		37E54F4F1F1A20CC0004C346 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		37E54F4F1F1A20CC0004C346 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
 		37E54F521F1A20CC0004C346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		37E54F541F1A20CC0004C346 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37E54F571F1A20CC0004C346 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		37E54F591F1A20CC0004C346 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37E54F5F1F1A21AA0004C346 /* SlicingImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlicingImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				37E54F4D1F1A20CC0004C346 /* AppDelegate.swift */,
-				37E54F4F1F1A20CC0004C346 /* ViewController.swift */,
+				37E54F4F1F1A20CC0004C346 /* DemoViewController.swift */,
+				37E54F5F1F1A21AA0004C346 /* SlicingImage.swift */,
+				374A85A61F1D3CD3005D2849 /* ImageStripe.swift */,
 				37E54F511F1A20CC0004C346 /* Main.storyboard */,
 				37E54F541F1A20CC0004C346 /* Assets.xcassets */,
 				37E54F561F1A20CC0004C346 /* LaunchScreen.storyboard */,
@@ -137,7 +143,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				37E54F501F1A20CC0004C346 /* ViewController.swift in Sources */,
+				37E54F501F1A20CC0004C346 /* DemoViewController.swift in Sources */,
+				37E54F601F1A21AA0004C346 /* SlicingImage.swift in Sources */,
+				374A85A71F1D3CD3005D2849 /* ImageStripe.swift in Sources */,
 				37E54F4E1F1A20CC0004C346 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -302,6 +310,7 @@
 				37E54F5E1F1A20CC0004C346 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
