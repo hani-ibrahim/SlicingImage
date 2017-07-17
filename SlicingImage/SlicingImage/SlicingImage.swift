@@ -35,10 +35,15 @@ public class SlicingImage: UIView {
         setupStackView()
     }
     
+    public override func layoutSubviews() {
+        super.layoutSubviews()
+        stripes.forEach { $0.update(containerSize: bounds.size) }
+    }
+    
     public func configure(for image: UIImage, into count: Int, inDirection direction: SlicingDirection) {
         prepareStackView(for: direction)
         stripes = (0..<count).map { index in
-            let imageStripe = ImageStripe(with: image, inContainerSize: bounds.size, at: index, inDirection: direction)
+            let imageStripe = ImageStripe(with: image, at: index, inDirection: direction)
             stackView.addArrangedSubview(imageStripe)
             return imageStripe
         }

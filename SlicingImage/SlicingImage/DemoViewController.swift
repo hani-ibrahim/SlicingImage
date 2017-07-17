@@ -14,7 +14,9 @@ class DemoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if let image = UIImage(named: "test-image") {
+            slicingImage.configure(for: image, into: 20, inDirection: .vertical)
+        }
     }
 }
 
