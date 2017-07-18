@@ -17,6 +17,11 @@ public class SlicingImage: UIView {
 
     public private(set) var stripes: [ImageStripe] = []
     public private(set) var direction: SlicingDirection = .vertical
+    public var animator: Animator? {
+        didSet {
+            setupAnimator()
+        }
+    }
     
     public override func layoutSubviews() {
         super.layoutSubviews()
@@ -31,7 +36,17 @@ public class SlicingImage: UIView {
             return imageStripe
         }
         self.direction = direction
+        setupAnimator()
         updateLayout()
+    }
+    
+    public func update(progress: CGFloat) {
+        animator?.update(progress: progress)
+    }
+    
+    private func setupAnimator() {
+        animator?.stripes = stripes
+        animator?.direction = direction
     }
     
     private func updateLayout() {

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		374A85A71F1D3CD3005D2849 /* ImageStripe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 374A85A61F1D3CD3005D2849 /* ImageStripe.swift */; };
+		37B4936E1F1E95E1002450E3 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B4936D1F1E95E1002450E3 /* Animator.swift */; };
 		37E54F4E1F1A20CC0004C346 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E54F4D1F1A20CC0004C346 /* AppDelegate.swift */; };
 		37E54F501F1A20CC0004C346 /* DemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E54F4F1F1A20CC0004C346 /* DemoViewController.swift */; };
 		37E54F531F1A20CC0004C346 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37E54F511F1A20CC0004C346 /* Main.storyboard */; };
@@ -18,6 +19,7 @@
 
 /* Begin PBXFileReference section */
 		374A85A61F1D3CD3005D2849 /* ImageStripe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStripe.swift; sourceTree = "<group>"; };
+		37B4936D1F1E95E1002450E3 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		37E54F4A1F1A20CC0004C346 /* SlicingImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SlicingImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37E54F4D1F1A20CC0004C346 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37E54F4F1F1A20CC0004C346 /* DemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				37E54F4F1F1A20CC0004C346 /* DemoViewController.swift */,
 				37E54F5F1F1A21AA0004C346 /* SlicingImage.swift */,
 				374A85A61F1D3CD3005D2849 /* ImageStripe.swift */,
+				37B4936D1F1E95E1002450E3 /* Animator.swift */,
 				37E54F511F1A20CC0004C346 /* Main.storyboard */,
 				37E54F541F1A20CC0004C346 /* Assets.xcassets */,
 				37E54F561F1A20CC0004C346 /* LaunchScreen.storyboard */,
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B4936E1F1E95E1002450E3 /* Animator.swift in Sources */,
 				37E54F501F1A20CC0004C346 /* DemoViewController.swift in Sources */,
 				37E54F601F1A21AA0004C346 /* SlicingImage.swift in Sources */,
 				374A85A71F1D3CD3005D2849 /* ImageStripe.swift in Sources */,
