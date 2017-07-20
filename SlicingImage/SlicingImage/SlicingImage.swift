@@ -44,6 +44,21 @@ public class SlicingImage: UIView {
         animator?.progress = progress
     }
     
+    public func animate(toProgress progress: CGFloat, overSteps steps: Int = 100) {
+        guard let currentProgress = animator?.progress else { return }
+        
+        let stepSize = (progress - currentProgress) / CGFloat(steps)
+        (1...steps).forEach { idx in
+            let deadlineTime = DispatchTime.now() + .milliseconds(idx * 10)
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
+                let newProgress = currentProgress + CGFloat(idx) * stepSize
+                
+                self?.animator?.progress = newProgress
+                print(newProgress)
+            }
+        }
+    }
+    
     private func setupAnimator() {
         animator?.stripes = stripes
         animator?.direction = direction

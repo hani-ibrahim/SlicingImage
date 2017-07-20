@@ -14,12 +14,17 @@ class DemoViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     
     let animator: FadeAnimator = FadeAnimator()
+    var scrollViewProgress: CGFloat {
+        let progressRatio = scrollView.contentOffset.y / scrollView.bounds.height
+        return min(max(progressRatio, 0), 1)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let image = UIImage(named: "test-image") {
-            slicingImage.configure(for: image, into: 50, inDirection: .vertical)
+            slicingImage.configure(for: image, into: 10, inDirection: .vertical)
             slicingImage.animator = animator
+            animate()
         }
     }
     
@@ -29,9 +34,11 @@ class DemoViewController: UIViewController {
         slicingImage.update(progress: scrollViewProgress)
     }
     
-    var scrollViewProgress: CGFloat {
-        let progressRatio = scrollView.contentOffset.y / scrollView.bounds.height
-        return min(max(progressRatio, 0), 1)
+    func animate() {
+        let deadlineTime = DispatchTime.now() + .seconds(3)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
+            self?.slicingImage.animate(toProgress: 1)
+        }
     }
 }
 
