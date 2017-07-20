@@ -41,7 +41,7 @@ public class SlicingImage: UIView {
     }
     
     public func update(progress: CGFloat) {
-        animator?.update(progress: progress)
+        animator?.progress = progress
     }
     
     private func setupAnimator() {

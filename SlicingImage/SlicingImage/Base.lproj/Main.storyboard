@@ -25,17 +25,28 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XEm-kU-ugo">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Ogj-bq-Pfj"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="yuO-Ok-6hv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="697-Dj-FC0"/>
                             <constraint firstItem="yuO-Ok-6hv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="NUJ-26-mER"/>
+                            <constraint firstItem="XEm-kU-ugo" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="OKE-g3-4T7"/>
+                            <constraint firstItem="XEm-kU-ugo" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QE1-28-rzB"/>
                             <constraint firstAttribute="trailing" secondItem="yuO-Ok-6hv" secondAttribute="trailing" id="WtN-yI-CV3"/>
+                            <constraint firstAttribute="trailing" secondItem="XEm-kU-ugo" secondAttribute="trailing" id="Xcy-pi-mJs"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="yuO-Ok-6hv" secondAttribute="bottom" id="YrY-yW-QNp"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XEm-kU-ugo" secondAttribute="bottom" id="hTU-uG-XDr"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Demo" id="4cy-Xk-MWn"/>
                     <connections>
+                        <outlet property="scrollView" destination="XEm-kU-ugo" id="XKX-XJ-Nup"/>
                         <outlet property="slicingImage" destination="yuO-Ok-6hv" id="G86-Ju-BQf"/>
                     </connections>
                 </viewController>
