@@ -51,10 +51,7 @@ public class SlicingImage: UIView {
         (1...steps).forEach { idx in
             let deadlineTime = DispatchTime.now() + .milliseconds(idx * 10)
             DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
-                let newProgress = currentProgress + CGFloat(idx) * stepSize
-                
-                self?.animator?.progress = newProgress
-                print(newProgress)
+                self?.animator?.progress = currentProgress + CGFloat(idx) * stepSize
             }
         }
     }
