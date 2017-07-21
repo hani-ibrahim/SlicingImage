@@ -10,17 +10,17 @@ import UIKit
 
 public class FadeAnimator: Animator {
 
-    public var stripes: [ImageStripe] = [] {
+    var stripes: [ImageStripe] = [] {
         didSet {
             updateProgress()
         }
     }
-    public var direction: SlicingDirection = .vertical {
+    var direction: SlicingDirection = .vertical {
         didSet {
             updateProgress()
         }
     }
-    public var progress: CGFloat = 0 {
+    var progress: CGFloat = 0 {
         didSet {
             updateProgress()
         }
