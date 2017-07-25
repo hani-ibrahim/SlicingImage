@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum TranslationDirection {
+public enum TranslationDirection {
     case top
     case right
     case bottom
