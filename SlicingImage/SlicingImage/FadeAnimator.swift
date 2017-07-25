@@ -26,7 +26,7 @@ public class FadeAnimator: Animator {
         }
     }
     
-    private func updateProgress() {
+    public func updateProgress() {
         let count = CGFloat(stripes.count)
         let stripeProgressLength: CGFloat = 1 / count
         for (idx, stripe) in stripes.enumerated() {

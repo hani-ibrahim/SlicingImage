@@ -35,10 +35,10 @@ class DemoViewController: UIViewController {
     }
     
     func animate() {
-//        let deadlineTime = DispatchTime.now() + .seconds(3)
-//        DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
-//            self?.slicingImage.animate(toProgress: 1)
-//        }
+        let deadlineTime = DispatchTime.now() + .seconds(3)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
+            self?.slicingImage.animate(toProgress: 1)
+        }
     }
 }
 

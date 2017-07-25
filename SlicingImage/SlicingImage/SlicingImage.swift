@@ -68,6 +68,7 @@ public class SlicingImage: UIView {
         
         let count = CGFloat(stripes.count)
         for (idx, stripe) in stripes.enumerated() {
+            stripe.transform = .identity
             switch direction {
             case .vertical:
                 stripe.frame.size = CGSize(width: bounds.width, height: bounds.height / count)
@@ -77,5 +78,7 @@ public class SlicingImage: UIView {
                 stripe.frame.origin = CGPoint(x: CGFloat(idx) * stripe.frame.size.width, y: 0)
             }
         }
+        
+        animator?.updateProgress()
     }
 }
