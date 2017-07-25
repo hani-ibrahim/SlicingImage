@@ -15,7 +15,7 @@ enum TranslationDirection {
     case left
 }
 
-class TranslationAnimator: Animator {
+public class TranslationAnimator: Animator {
     
     public var stripes: [ImageStripe] = [] {
         didSet {
