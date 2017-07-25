@@ -13,7 +13,7 @@ class DemoViewController: UIViewController {
     @IBOutlet var slicingImage: SlicingImage!
     @IBOutlet var scrollView: UIScrollView!
     
-    let animator: FadeAnimator = FadeAnimator()
+    let animator: Animator = TranslationAnimator()
     var scrollViewProgress: CGFloat {
         let progressRatio = scrollView.contentOffset.y / scrollView.bounds.height
         return min(max(progressRatio, 0), 1)
