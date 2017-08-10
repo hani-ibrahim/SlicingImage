@@ -21,11 +21,14 @@ public struct ImageStripeDivider {
 extension ImageStripeDivider: ImageDivider {
     
     public func divide(image: UIImage, into count: Int, inTotalSize totalSize: CGSize) -> [ImageSlice] {
+        guard let cgImage = image.cgImage else { return [] }
+        let cgImageSize = CGSize(width: CGFloat(cgImage.width), height: CGFloat(cgImage.height))
+        
         let images: [ImageSlice] = (0..<count).map { index in
-            let croppingFrame = frame(for: index, of: count, inTotalSize: totalSize)
+            let croppingFrame = frame(for: index, of: count, inTotalSize: cgImageSize)
             let displayedFrame = frame(for: index, of: count, inTotalSize: totalSize)
             
-            guard let croppedImage = image.cgImage?.cropping(to: croppingFrame) else { return nil }
+            guard let croppedImage = cgImage.cropping(to: croppingFrame) else { return nil }
             return ImageSlice(image: UIImage(cgImage: croppedImage), index: index, frame: displayedFrame)
         }.flatMap { $0 }
         
