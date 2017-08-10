@@ -8,30 +8,30 @@
 
 import UIKit
 
-public class FadeAnimator: Animator {
-
-    public var stripes: [ImageStripe] = [] {
-        didSet {
-            updateProgress()
-        }
-    }
-    public var direction: SlicingDirection = .vertical {
-        didSet {
-            updateProgress()
-        }
-    }
-    public var progress: CGFloat = 0 {
-        didSet {
-            updateProgress()
-        }
-    }
-    
-    public func updateProgress() {
-        let count = CGFloat(stripes.count)
-        let stripeProgressLength: CGFloat = 1 / count
-        for (idx, stripe) in stripes.enumerated() {
-            let alpha = progress / stripeProgressLength - CGFloat(idx)
-            stripe.alpha = min(max(alpha, 0), 1)
-        }
-    }
-}
+//public class FadeAnimator: Animator {
+//
+//    public var stripes: [ImageStripe] = [] {
+//        didSet {
+//            updateProgress()
+//        }
+//    }
+//    public var direction: SlicingDirection = .vertical {
+//        didSet {
+//            updateProgress()
+//        }
+//    }
+//    public var progress: CGFloat = 0 {
+//        didSet {
+//            updateProgress()
+//        }
+//    }
+//    
+//    public func updateProgress() {
+//        let count = CGFloat(stripes.count)
+//        let stripeProgressLength: CGFloat = 1 / count
+//        for (idx, stripe) in stripes.enumerated() {
+//            let alpha = progress / stripeProgressLength - CGFloat(idx)
+//            stripe.alpha = min(max(alpha, 0), 1)
+//        }
+//    }
+//}

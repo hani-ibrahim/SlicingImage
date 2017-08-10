@@ -8,6 +8,12 @@
 
 import UIKit
 
+public struct ImageSlice {
+    let image: UIImage
+    let index: Int
+    let frame: CGRect
+}
+
 public protocol ImageDivider {
-    func divide(image: UIImage, into count: Int) -> [UIImage]
+    func divide(image: UIImage, into count: Int, inTotalSize totalSize: CGSize) -> [ImageSlice]
 }

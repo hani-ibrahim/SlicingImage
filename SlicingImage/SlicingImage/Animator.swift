@@ -8,9 +8,9 @@
 
 import UIKit
 
-public protocol Animator: class {
-    var stripes: [ImageStripe] { get set }
-    var direction: SlicingDirection { get set }
-    var progress: CGFloat { get set }
-    func updateProgress()
-}
+//public protocol Animator: class {
+//    var stripes: [ImageStripe] { get set }
+//    var direction: SlicingDirection { get set }
+//    var progress: CGFloat { get set }
+//    func updateProgress()
+//}

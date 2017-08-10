@@ -8,77 +8,20 @@
 
 import UIKit
 
-public enum SlicingDirection {
-    case vertical
-    case horizontal
-}
-
 public class SlicingImage: UIView {
 
-    public private(set) var stripes: [ImageStripe] = []
-    public private(set) var direction: SlicingDirection = .vertical
-    public var animator: Animator? {
-        didSet {
-            setupAnimator()
-        }
-    }
+    public private(set) var sliceImageViews: [UIImageView] = []
+    public var imageDivider: ImageDivider?
+//    public var animator: Animator?
     
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        updateLayout()
-    }
-    
-    public func configure(for image: UIImage, into count: Int, inDirection direction: SlicingDirection) {
-        stripes.forEach { $0.removeFromSuperview() }
-        stripes = (0..<count).map { index in
-            let imageStripe = ImageStripe(with: image, at: index, forTotalCount: count, inDirection: direction)
-            addSubview(imageStripe)
-            return imageStripe
-        }
-        self.direction = direction
-        setupAnimator()
-        updateLayout()
-    }
-    
-    public func update(progress: CGFloat) {
-        animator?.progress = progress
-    }
-    
-    public func animate(toProgress progress: CGFloat, overSteps steps: Int = 100) {
-        guard let currentProgress = animator?.progress else { return }
+    public func configure(for image: UIImage, into count: Int) {
+        sliceImageViews.forEach { $0.removeFromSuperview() }
+        sliceImageViews = imageDivider?.divide(image: image, into: count, inTotalSize: bounds.size).map { slice in
+            let imageView = UIImageView(frame: slice.frame)
+            imageView.image = slice.image
+            addSubview(imageView)
+            return imageView
+        } ?? []
         
-        let stepSize = (progress - currentProgress) / CGFloat(steps)
-        (1...steps).forEach { idx in
-            let deadlineTime = DispatchTime.now() + .milliseconds(idx * 10)
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime) { [weak self] in
-                self?.animator?.progress = currentProgress + CGFloat(idx) * stepSize
-            }
-        }
-    }
-    
-    private func setupAnimator() {
-        animator?.stripes = stripes
-        animator?.direction = direction
-    }
-    
-    private func updateLayout() {
-        // Note: UIStackView doesn't work here as it doesn't provide exact equal height for vertical layout even with `fillEqually`
-        //       That's because it approximate decimal values
-        //       So I have to calculate the size to have precise dimensions
-        
-        let count = CGFloat(stripes.count)
-        for (idx, stripe) in stripes.enumerated() {
-            stripe.transform = .identity
-            switch direction {
-            case .vertical:
-                stripe.frame.size = CGSize(width: bounds.width, height: bounds.height / count)
-                stripe.frame.origin = CGPoint(x: 0, y: CGFloat(idx) * stripe.frame.size.height)
-            case .horizontal:
-                stripe.frame.size = CGSize(width: bounds.width / count, height: bounds.height)
-                stripe.frame.origin = CGPoint(x: CGFloat(idx) * stripe.frame.size.width, y: 0)
-            }
-        }
-        
-        animator?.updateProgress()
     }
 }
