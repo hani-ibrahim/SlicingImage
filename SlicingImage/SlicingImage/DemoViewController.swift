@@ -20,15 +20,15 @@ class DemoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let image = UIImage(named: "testPattern") {
-            slicingImage.animator = FadeAnimator()
-            slicingImage.imageDivider = ImageStripeDivider(direction: .vertical)
-            slicingImage.configure(for: image, into: 10)
-        }
+        slicingImage.animator = FadeAnimator()
+        slicingImage.imageDivider = ImageStripeDivider(direction: .vertical)
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        if let image = UIImage(named: "testPattern") {
+            slicingImage.configure(for: image, into: 20)
+        }
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height * 2)
         slicingImage.update(progress: scrollViewProgress)
     }
