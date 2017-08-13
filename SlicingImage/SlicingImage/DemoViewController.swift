@@ -13,40 +13,30 @@ class DemoViewController: UIViewController {
     @IBOutlet var slicingImage: SlicingImage!
     @IBOutlet var scrollView: UIScrollView!
     
-//    let animator: Animator = TranslationAnimator()
-//    var scrollViewProgress: CGFloat {
-//        let progressRatio = scrollView.contentOffset.y / scrollView.bounds.height
-//        return min(max(progressRatio, 0), 1)
-//    }
+    var scrollViewProgress: CGFloat {
+        let progressRatio = scrollView.contentOffset.y / scrollView.frame.height
+        return min(max(progressRatio, 0), 1)
+    }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         if let image = UIImage(named: "testPattern") {
+            slicingImage.animator = FadeAnimator()
             slicingImage.imageDivider = ImageStripeDivider(direction: .vertical)
             slicingImage.configure(for: image, into: 10)
         }
     }
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        if let image = UIImage(named: "test-image") {
-//            slicingImage.configure(for: image, into: 10, inDirection: .vertical)
-//            slicingImage.animator = animator
-//            animate()
-//        }
-//    }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        scrollView.contentSize = CGSize(width: view.bounds.width, height: view.bounds.height * 2)
-//        slicingImage.update(progress: scrollViewProgress)
-//    }
-    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height * 2)
+        slicingImage.update(progress: scrollViewProgress)
+    }
 }
 
 extension DemoViewController: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        slicingImage.update(progress: scrollViewProgress)
+        slicingImage.update(progress: scrollViewProgress)
     }
 }

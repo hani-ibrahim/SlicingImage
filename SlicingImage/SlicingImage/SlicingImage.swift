@@ -10,18 +10,17 @@ import UIKit
 
 public class SlicingImage: UIView {
 
-    public private(set) var sliceImageViews: [UIImageView] = []
+    public private(set) var sliceViews: [UIView] = []
     public var imageDivider: ImageDivider?
-//    public var animator: Animator?
+    public var animator: Animator?
     
     public func configure(for image: UIImage, into count: Int) {
-        sliceImageViews.forEach { $0.removeFromSuperview() }
-        sliceImageViews = imageDivider?.divide(image: image, into: count, inTotalSize: bounds.size).map { slice in
-            let imageView = UIImageView(frame: slice.frame)
-            imageView.image = slice.image
-            addSubview(imageView)
-            return imageView
-        } ?? []
-        
+        sliceViews.forEach { $0.removeFromSuperview() }
+        sliceViews = imageDivider?.divide(image: image, into: count, inTotalSize: bounds.size) ?? []
+        sliceViews.forEach { addSubview($0) }
+    }
+    
+    public func update(progress: CGFloat, duration: TimeInterval = 0) {
+        animator?.update(progress: progress, for: sliceViews, duration: duration)
     }
 }
