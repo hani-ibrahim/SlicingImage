@@ -21,6 +21,13 @@ public class SlicingImage: UIView {
     }
     
     public func update(progress: CGFloat, duration: TimeInterval = 0) {
-        animator?.update(progress: progress, for: sliceViews, duration: duration)
+        if duration == 0 {
+            animator?.update(progress: progress, for: sliceViews)
+        } else {
+            UIView.animate(withDuration: duration) { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.animator?.update(progress: progress, for: strongSelf.sliceViews)
+            }
+        }
     }
 }
