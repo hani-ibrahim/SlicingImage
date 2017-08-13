@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class FadeAnimator: Animator {
+public struct FadeAnimator: Animator {
     
     public func update(progress: CGFloat, for slices: [UIView], duration: TimeInterval) {
         if duration == 0 {
