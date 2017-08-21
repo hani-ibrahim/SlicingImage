@@ -1,7 +1,7 @@
 # SlicingImage
 Slice Image into small images and animate them
 
-![](https://github.com/hani-ibrahim/SlicingImage/raw/master/fade.gif)
+![](https://github.com/hani-ibrahim/SlicingImage/raw/master/fade-demo.gif)
 
 # Usage
 SlicingImage needs `ImageDivider` and `Animator`
