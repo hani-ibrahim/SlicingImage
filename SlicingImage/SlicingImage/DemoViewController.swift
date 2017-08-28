@@ -26,7 +26,7 @@ class DemoViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        if let image = UIImage(named: "testPattern") {
+        if let image = UIImage(named: "sample-image") {
             slicingImage.configure(for: image, into: 20)
         }
         scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height * 2)
