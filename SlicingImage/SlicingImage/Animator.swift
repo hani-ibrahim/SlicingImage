@@ -9,5 +9,5 @@
 import UIKit
 
 public protocol Animator {
-    func update(progress: CGFloat, for slices: [UIView])
+    func update(progress: CGFloat, for slices: [Slice])
 }

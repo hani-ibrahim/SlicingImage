@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		375100F320BAE74800541E45 /* Slice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375100F220BAE74800541E45 /* Slice.swift */; };
+		375100F520BAE78400541E45 /* SliceCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375100F420BAE78400541E45 /* SliceCreator.swift */; };
+		375100F720BAE7DB00541E45 /* PrecentageSliceCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375100F620BAE7DB00541E45 /* PrecentageSliceCreator.swift */; };
 		3753FCDC1F3CE5BF0031C0AD /* ImageDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753FCDB1F3CE5BF0031C0AD /* ImageDivider.swift */; };
 		3753FCDE1F3CE7810031C0AD /* ImageStripeDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3753FCDD1F3CE7810031C0AD /* ImageStripeDivider.swift */; };
 		37B43E761F27DA8900B34FE9 /* TranslationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B43E751F27DA8900B34FE9 /* TranslationAnimator.swift */; };
@@ -21,6 +24,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		375100F220BAE74800541E45 /* Slice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slice.swift; sourceTree = "<group>"; };
+		375100F420BAE78400541E45 /* SliceCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliceCreator.swift; sourceTree = "<group>"; };
+		375100F620BAE7DB00541E45 /* PrecentageSliceCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrecentageSliceCreator.swift; sourceTree = "<group>"; };
 		3753FCDB1F3CE5BF0031C0AD /* ImageDivider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDivider.swift; sourceTree = "<group>"; };
 		3753FCDD1F3CE7810031C0AD /* ImageStripeDivider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStripeDivider.swift; sourceTree = "<group>"; };
 		37B43E751F27DA8900B34FE9 /* TranslationAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TranslationAnimator.swift; sourceTree = "<group>"; };
@@ -47,6 +53,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		375100F120BAE71400541E45 /* Slice */ = {
+			isa = PBXGroup;
+			children = (
+				375100F220BAE74800541E45 /* Slice.swift */,
+				375100F420BAE78400541E45 /* SliceCreator.swift */,
+				375100F620BAE7DB00541E45 /* PrecentageSliceCreator.swift */,
+			);
+			name = Slice;
+			sourceTree = "<group>";
+		};
 		3753FCDF1F3CE7D10031C0AD /* ImageDivider */ = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +104,7 @@
 				37E54F4D1F1A20CC0004C346 /* AppDelegate.swift */,
 				37E54F4F1F1A20CC0004C346 /* DemoViewController.swift */,
 				37E54F5F1F1A21AA0004C346 /* SlicingImage.swift */,
+				375100F120BAE71400541E45 /* Slice */,
 				3753FCDF1F3CE7D10031C0AD /* ImageDivider */,
 				3753FCE01F3CE7D90031C0AD /* Animator */,
 				37E54F511F1A20CC0004C346 /* Main.storyboard */,
@@ -173,10 +190,13 @@
 			files = (
 				37B4936E1F1E95E1002450E3 /* Animator.swift in Sources */,
 				37E54F501F1A20CC0004C346 /* DemoViewController.swift in Sources */,
+				375100F720BAE7DB00541E45 /* PrecentageSliceCreator.swift in Sources */,
 				3753FCDE1F3CE7810031C0AD /* ImageStripeDivider.swift in Sources */,
 				37C590851F2132AD00C02D02 /* FadeAnimator.swift in Sources */,
+				375100F320BAE74800541E45 /* Slice.swift in Sources */,
 				37E54F601F1A21AA0004C346 /* SlicingImage.swift in Sources */,
 				37B43E761F27DA8900B34FE9 /* TranslationAnimator.swift in Sources */,
+				375100F520BAE78400541E45 /* SliceCreator.swift in Sources */,
 				37E54F4E1F1A20CC0004C346 /* AppDelegate.swift in Sources */,
 				3753FCDC1F3CE5BF0031C0AD /* ImageDivider.swift in Sources */,
 			);

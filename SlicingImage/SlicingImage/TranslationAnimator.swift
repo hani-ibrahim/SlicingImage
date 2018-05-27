@@ -8,9 +8,11 @@
 
 import UIKit
 
-public struct TranslationAnimator {
+public class TranslationAnimator {
     
-    public var direction: Direction = .top
+    private let direction: Direction
+    private let positionStartShift: CGFloat
+    private let positionEndShift: CGFloat
     
     public enum Direction {
         case top
@@ -18,19 +20,24 @@ public struct TranslationAnimator {
         case bottom
         case left
     }
+    
+    public init(direction: Direction, positionStartShift: CGFloat, positionEndShift: CGFloat) {
+        self.direction = direction
+        self.positionStartShift = positionStartShift
+        self.positionEndShift = positionEndShift
+    }
 }
 
 extension TranslationAnimator: Animator {
-    
-    public func update(progress: CGFloat, for slices: [UIView]) {
+    public func update(progress: CGFloat, for slices: [Slice]) {
         slices.enumerated().forEach { (idx, slice) in
-            let position = 1 + CGFloat(idx) - progress * CGFloat(slices.count)
-            let relativePosition = min(max(position, 0), 1)
+            let position = (progress - slice.progressRange.upperBound) / (slice.progressRange.upperBound - slice.progressRange.lowerBound)
+            let relativePosition = min(max(position, -1), 0)
             switch direction {
-            case .top: slice.transform = CGAffineTransform(translationX: 0, y: -relativePosition * slice.frame.height)
-            case .right: slice.transform = CGAffineTransform(translationX: relativePosition * slice.frame.width, y: 0)
-            case .bottom: slice.transform = CGAffineTransform(translationX: 0, y: relativePosition * slice.frame.height)
-            case .left: slice.transform = CGAffineTransform(translationX: -relativePosition * slice.frame.width, y: 0)
+            case .top: slice.view.transform = CGAffineTransform(translationX: 0, y: -relativePosition * slice.view.frame.height)
+            case .right: slice.view.transform = CGAffineTransform(translationX: relativePosition * slice.view.frame.width, y: 0)
+            case .bottom: slice.view.transform = CGAffineTransform(translationX: 0, y: relativePosition * slice.view.frame.height)
+            case .left: slice.view.transform = CGAffineTransform(translationX: -relativePosition * slice.view.frame.width, y: 0)
             }
         }
     }

@@ -8,23 +8,26 @@
 
 import UIKit
 
-public struct ImageStripeDivider {
+public class ImageStripeDivider {
     
-    public var direction: Direction = .vertical
-    
+    private let direction: Direction
+
     public enum Direction {
         case vertical
         case horizontal
     }
+    
+    public init(direction: Direction) {
+        self.direction = direction
+    }
 }
 
 extension ImageStripeDivider: ImageDivider {
-    
     public func divide(image: UIImage, into count: Int, inTotalSize totalSize: CGSize) -> [UIView] {
         guard let cgImage = image.cgImage else { return [] }
         let cgImageSize = CGSize(width: CGFloat(cgImage.width), height: CGFloat(cgImage.height))
         
-        let images: [UIView] = (0..<count).map { index in
+        return (0..<count).map { index in
             let croppingFrame = frame(for: index, of: count, inTotalSize: cgImageSize)
             let displayedFrame = frame(for: index, of: count, inTotalSize: totalSize)
             
@@ -33,22 +36,16 @@ extension ImageStripeDivider: ImageDivider {
             imageView.image = UIImage(cgImage: croppedImage)
             return imageView
         }.compactMap { $0 }
-        
-        return images
     }
     
     private func frame(for index: Int, of count: Int, inTotalSize totalSize: CGSize) -> CGRect {
-        var frame = CGRect(origin: .zero, size: totalSize)
-        
         switch direction {
         case .vertical:
-            frame.size.height = totalSize.height / CGFloat(count)
-            frame.origin.y = CGFloat(index) * frame.size.height
+            let height = totalSize.height / CGFloat(count)
+            return CGRect(x: 0, y: CGFloat(index) * height, width: totalSize.width, height: height)
         case .horizontal:
-            frame.size.width = totalSize.width / CGFloat(count)
-            frame.origin.x = CGFloat(index) * frame.size.width
+            let width = totalSize.width / CGFloat(count)
+            return CGRect(x: CGFloat(index) * width, y: 0, width: width, height: totalSize.height)
         }
-        
-        return frame
     }
 }
