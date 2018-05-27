@@ -32,7 +32,7 @@ extension ImageStripeDivider: ImageDivider {
             let imageView = UIImageView(frame: displayedFrame)
             imageView.image = UIImage(cgImage: croppedImage)
             return imageView
-        }.flatMap { $0 }
+        }.compactMap { $0 }
         
         return images
     }
