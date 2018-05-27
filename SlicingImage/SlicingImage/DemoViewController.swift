@@ -11,13 +11,8 @@ import UIKit
 class DemoViewController: UIViewController {
     
     @IBOutlet var slicingImage: SlicingImage!
-    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var slider: UISlider!
     
-    var scrollViewProgress: CGFloat {
-        let progressRatio = scrollView.contentOffset.y / scrollView.frame.height
-        return min(max(progressRatio, 0), 1)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,13 +27,10 @@ class DemoViewController: UIViewController {
         if let image = UIImage(named: "sample-image") {
             slicingImage.configure(for: image, into: 20)
         }
-        scrollView.contentSize = CGSize(width: scrollView.frame.width, height: scrollView.frame.height * 2)
-        slicingImage.update(progress: scrollViewProgress)
+        slicingImage.update(progress: CGFloat(slider.value))
     }
-}
-
-extension DemoViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        slicingImage.update(progress: scrollViewProgress)
+    
+    @IBAction private func sliderValueChanged() {
+        slicingImage.update(progress: CGFloat(slider.value))
     }
 }
