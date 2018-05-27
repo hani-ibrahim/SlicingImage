@@ -16,9 +16,9 @@ class DemoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        slicingImage.animator = TranslationAnimator(direction: .bottom, positionStartShift: 0, positionEndShift: 0)
+        slicingImage.animators = [TranslationAnimator(direction: .bottom), FadeAnimator()]
         slicingImage.imageDivider = ImageStripeDivider(direction: .vertical)
-        slicingImage.sliceCreator = PrecentageSliceCreator(sliceStartShift: 0, sliceEndShift: 0)
+        slicingImage.sliceCreator = PrecentageSliceCreator(sliceStartShift: 0.2, sliceEndShift: 0.2)
     }
     
     override func viewDidLayoutSubviews() {

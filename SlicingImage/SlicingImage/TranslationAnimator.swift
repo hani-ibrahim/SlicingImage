@@ -11,8 +11,6 @@ import UIKit
 public class TranslationAnimator {
     
     private let direction: Direction
-    private let positionStartShift: CGFloat
-    private let positionEndShift: CGFloat
     
     public enum Direction {
         case top
@@ -21,10 +19,8 @@ public class TranslationAnimator {
         case left
     }
     
-    public init(direction: Direction, positionStartShift: CGFloat, positionEndShift: CGFloat) {
+    public init(direction: Direction) {
         self.direction = direction
-        self.positionStartShift = positionStartShift
-        self.positionEndShift = positionEndShift
     }
 }
 

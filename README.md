@@ -1,5 +1,4 @@
 # SlicingImage 
-### (*Still in development - there are few known bugs*)
 Slice Image into small images and animate them
 
 ![](https://github.com/hani-ibrahim/SlicingImage/raw/master/demo1.gif) ![](https://github.com/hani-ibrahim/SlicingImage/raw/master/demo2.gif)
